@@ -167,17 +167,19 @@ scene('game', () => {
 
   action('space-invader', (s) => {
     s.move(CURRENT_SPEED, 0)
-    s.collides('right-side', () => {
-      CURRENT_SPEED = -INVADER_SPEED
-      every('space-invader', (obj) => {
-        obj.move(0, LEVEL_DOWN)
-      })
+  })
+
+  collides('space-invader','right-side', () => {
+    CURRENT_SPEED = -INVADER_SPEED
+    every('space-invader', (obj) => {
+      obj.move(0, LEVEL_DOWN)
     })
-    s.collides('left-side', () => {
-      CURRENT_SPEED = INVADER_SPEED
-      every('space-invader', (obj) => {
-        obj.move(0, LEVEL_DOWN)
-      })
+  })
+
+  collides('space-invader', 'left-side', () => {
+    CURRENT_SPEED = INVADER_SPEED
+    every('space-invader', (obj) => {
+      obj.move(0, LEVEL_DOWN)
     })
   })
 
