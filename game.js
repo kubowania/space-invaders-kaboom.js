@@ -41,7 +41,9 @@ scene('game', () => {
       '^': [sprite('space-invader'), solid(), scale(0.7), 'space-invader'],
       '!': [sprite('wall'), solid(), 'left-side'],
       '&': [sprite('wall'), solid(), 'right-side'],
-    }
+    },
+    pos(width() / 2, height() / 2),
+    origin('center'),
   )
   function lifespan(time) {
     let timer = 0
