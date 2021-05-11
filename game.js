@@ -188,8 +188,16 @@ scene('game', () => {
   player.collides('space-invader', () => {
     go('lose', score.value)
   })
+  
+  action('space-invader', (s) => {
+		if (s.pos.y >= height()) {
+			// switch to "death" scene
+			go("lose", score.value);
+		}
+	})
 })
 
+ 
 scene('lose', (score) => {
   add([
     text(score),
